@@ -1,0 +1,113 @@
+﻿@model List<Clothify_Project.Models.CartItem>
+@{
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Clothify</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="container">
+        <h1>My Cart</h1>
+
+        @if (Model.Any())
+        {
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Image</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.ProductName</td>
+                            <td><img src="@item.ImageURL" alt="@item.ProductName" style="width:100px;" /></td>
+                            <td>$@item.Price</td>
+                            <td>
+                                <input type="number" value="@item.Quantity"
+                               data-cart-id="@item.CartID" class="update-quantity form-control" min="1" />
+                            </td>
+                            <td>$@item.TotalPrice</td>
+                            <td>
+                                <button class="btn btn-danger remove-item" data-cart-id="@item.CartID">Remove</button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <a href="@Url.Action("Checkout", "Cart")" class="btn btn-primary">Proceed to Checkout</a>
+        }
+        else
+        {
+            <p>Your cart is empty.</p>
+        }
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // Update quantity of an item
+            $(".update-quantity").change(function () {
+                var cartId = $(this).data("cart-id");
+                var quantity = $(this).val();
+
+                if (quantity > 0) {
+                    $.ajax({
+                        url: '@Url.Action("UpdateQuantity", "Cart")',
+                        type: 'POST',
+                        data: { cartId: cartId, quantity: quantity },
+                        success: function (response) {
+                            if (response.success) {
+                                location.reload(); // Reload to reflect updated cart
+                            } else {
+                                alert(response.message);
+                            }
+                        },
+                        error: function () {
+                            alert("An error occurred while updating the quantity.");
+                        }
+                    });
+                } else {
+                    alert("Quantity must be greater than 0.");
+                }
+            });
+
+            // Remove item from cart
+            $(".remove-item").click(function () {
+                var cartId = $(this).data("cart-id");
+
+                $.ajax({
+                    url: '@Url.Action("RemoveFromCart", "Cart")',
+                    type: 'POST',
+                    data: { cartId: cartId },
+                    success: function (response) {
+                        if (response.success) {
+                            location.reload(); // Reload to reflect removed item
+                        } else {
+                            alert(response.message);
+                        }
+                    },
+                    error: function () {
+                        alert("An error occurred while removing the item.");
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Contact Us";
+}
+
+<div class="container text-center">
+    <h1>@ViewData["Title"]</h1>
+
+    <p>If you have any questions or concerns, feel free to contact us.</p>
+
+    <!-- Displaying the Email -->
+    <p><strong>Email: </strong><a href="mailto:clothify.store.pk" class="email-link">clothify.store.pk</a></p>
+
+    <!-- Displaying the Physical Address -->
+    <p><strong>Address: </strong>123 Clothify Street, South, Pakistan</p>
+</div>
+
+<style>
+    .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .email-link {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+        .email-link:hover {
+            text-decoration: underline;
+        }
+
+    p {
+        font-size: 18px;
+    }
+
+    strong {
+        font-weight: bold;
+    }
+</style>

@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>060c60ba-0a27-4aae-b7ea-4e8a5db66e0c</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Views\NewFolder1\**" />
+    <Content Remove="Views\NewFolder1\**" />
+    <EmbeddedResource Remove="Views\NewFolder1\**" />
+    <None Remove="Views\NewFolder1\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Controllers\controller.cs" />
+    <Compile Remove="Controllers\ProductsController.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\Login.cshtml" />
+    <Content Remove="Views\NewFolder2\Index.cshtml" />
+    <Content Remove="Views\SignUp.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="MySql.Data" Version="9.1.0" />
+    <PackageReference Include="MySql.EntityFrameworkCore" Version="8.0.8" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.9.0" />
+  </ItemGroup>
+
+</Project>

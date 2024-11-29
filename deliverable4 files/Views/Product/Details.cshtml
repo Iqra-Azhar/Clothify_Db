@@ -1,0 +1,79 @@
+﻿@model Clothify_Project.Models.Product
+
+<h2>@Model.ProductName</h2>
+
+<div class="product-details">
+    <div class="product-image">
+        <img src="@Model.ImageURL" alt="@Model.ProductName" />
+    </div>
+    <div class="product-info">
+        <p><strong>Description:</strong> @Model.Description</p>
+        <p><strong>Price:</strong> $@Model.Price</p>
+
+
+        <!-- Quantity Input -->
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" min="1" max="@Model.StockCount" value="1" class="form-control" />
+
+        <!-- Add to Cart Button -->
+        <form method="post" action="@Url.Action("AddToCart", "Cart")" class="add-to-cart-form">
+            <input type="hidden" name="ProductID" value="@Model.ProductID" />
+            <input type="hidden" name="ProductName" value="@Model.ProductName" />
+            <input type="hidden" name="Price" value="@Model.Price" />
+            <input type="hidden" name="StockCount" value="@Model.StockCount" />
+            <input type="hidden" id="selectedQuantity" name="Quantity" value="1" />
+            <button type="submit" class="add-to-cart-button">Add to Cart</button>
+        </form>
+    </div>
+</div>
+
+<!-- Styles for the product details page -->
+<style>
+    .product-details {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+    }
+
+    .product-image img {
+        max-width: 300px;
+        height: auto;
+        border-radius: 10px;
+    }
+
+    .product-info {
+        max-width: 600px;
+        padding-left: 20px;
+    }
+
+        .product-info p {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+
+    .add-to-cart-form {
+        margin-top: 20px;
+    }
+
+    .add-to-cart-button {
+        background-color: #28a745;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1em;
+    }
+
+        .add-to-cart-button:hover {
+            background-color: #218838;
+        }
+</style>
+
+<!-- Script to Update Quantity -->
+<script>
+    // Update the hidden input field with selected quantity
+    document.getElementById('quantity').addEventListener('input', function () {
+        document.getElementById('selectedQuantity').value = this.value;
+    });
+</script>

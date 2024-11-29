@@ -1,0 +1,143 @@
+﻿@model IEnumerable<Clothify_Project.Models.Product>
+
+<h2>Products</h2>
+
+<!-- Search Bar -->
+<form method="get" action="@Url.Action("Index", "Product")">
+    <input type="text" name="searchTerm" value="@ViewData["SearchTerm"]" placeholder="Search products..." />
+    <button type="submit">Search</button>
+</form>
+
+<!-- Product List Container -->
+<div class="product-container">
+    @foreach (var product in Model)
+    {
+        <div class="product-card">
+            <!-- Product Details -->
+            <a href="@Url.Action("Details", "Product", new { id = product.ProductID })">
+                <img src="@product.ImageURL" alt="@product.ProductName" class="product-image" />
+                <h3 class="product-title">@product.ProductName</h3>
+                <p class="product-description">@product.Description</p>
+                <p class="product-price">Price: $@product.Price</p>
+                <div class="product-rating">
+                    @for (int i = 1; i <= 5; i++)
+                    {
+                        if (i <= product.AverageRating)
+                        {
+                            <span class="star filled">★</span>
+                        }
+                        else
+                        {
+                            <span class="star">★</span>
+                        }
+                    }
+                </div>
+            </a>
+
+            <!-- Add to Cart Button -->
+            <form method="post" action="@Url.Action("AddToCart", "Cart")" class="add-to-cart-form">
+                <input type="hidden" name="ProductID" value="@product.ProductID" />
+                <input type="hidden" name="ProductName" value="@product.ProductName" />
+                <input type="hidden" name="Price" value="@product.Price" />
+                <button type="submit" class="add-to-cart-button">Add to Cart</button>
+            </form>
+        </div>
+    }
+</div>
+
+<!-- Pagination (if needed) -->
+<div class="pagination">
+    <!-- Add pagination links here -->
+</div>
+
+<!-- Styles -->
+<style>
+    .product-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .product-card {
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .product-image {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+
+    .product-title {
+        font-size: 1.2em;
+        margin: 10px 0;
+    }
+
+    .product-description {
+        font-size: 0.9em;
+        color: #555;
+        margin: 10px 0;
+    }
+
+    .product-price {
+        font-weight: bold;
+        font-size: 1.1em;
+        color: #333;
+    }
+
+    .product-rating {
+        margin-top: 10px;
+    }
+
+    .star {
+        color: lightgray;
+        font-size: 18px;
+    }
+
+        .star.filled {
+            color: gold;
+        }
+
+    .add-to-cart-form {
+        margin-top: 10px;
+    }
+
+    .add-to-cart-button {
+        background-color: #28a745;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1em;
+    }
+
+        .add-to-cart-button:hover {
+            background-color: #218838;
+        }
+
+    .pagination {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+        .pagination a {
+            margin: 0 10px;
+            padding: 10px 15px;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+            .pagination a:hover {
+                background-color: #555;
+            }
+</style>
