@@ -1,0 +1,542 @@
+﻿@page
+@model E_commerce_store_new_.Pages.Products2Model
+@{
+}
+<style>
+    body,
+    html {
+        height: 100%;
+    }
+
+    .d-flex {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+    }
+
+    .align-center {
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+
+    .flex-centerY-centerX {
+        justify-content: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+
+    body {
+        background-color: #f7f7f7;
+    }
+
+    .page-wrapper {
+        height: 100%;
+        display: table;
+    }
+
+        .page-wrapper .page-inner {
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+    .row
+    {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 0 auto;
+        max-width: 1200px;
+    }
+
+    .el-wrapper {
+        width: 360px;
+        padding: 15px;
+        margin: 15px auto;
+        background-color: #fff;
+        width: calc(33.33% - 20px);
+        margin-bottom: 40px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+
+
+    .el-wrapper {
+        width: 345px;
+    }
+
+
+
+    .el-wrapper {
+        width: 290px;
+        margin: 30px auto;
+    }
+
+
+        .el-wrapper:hover .h-bg {
+            left: 0px;
+        }
+
+        .el-wrapper:hover .price {
+            left: 20px;
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            -o-transform: translateY(-50%);
+            transform: translateY(-50%);
+            color: #818181;
+        }
+
+        .el-wrapper:hover .add-to-cart {
+            left: 50%;
+        }
+
+        .el-wrapper:hover .img {
+            webkit-filter: blur(7px);
+            -o-filter: blur(7px);
+            -ms-filter: blur(7px);
+            filter: blur(7px);
+            filter: progid:DXImageTransform.Microsoft.Blur(pixelradius='7', shadowopacity='0.0');
+            opacity: 0.4;
+            object-fit: cover;
+            width: 100%;
+            height: 200px;
+        }
+
+        .el-wrapper:hover .info-inner {
+            bottom: 155px;
+        }
+
+        .el-wrapper:hover .a-size {
+            -webkit-transition-delay: 300ms;
+            -o-transition-delay: 300ms;
+            transition-delay: 300ms;
+            bottom: 50px;
+            opacity: 1;
+        }
+
+        .el-wrapper .box-down {
+            width: 100%;
+            height: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .el-wrapper .box-up {
+            width: 100%;
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .el-wrapper .img {
+            padding: 20px 0;
+            -webkit-transition: all 800ms cubic-bezier(0, 0, 0.18, 1);
+            -moz-transition: all 800ms cubic-bezier(0, 0, 0.18, 1);
+            -o-transition: all 800ms cubic-bezier(0, 0, 0.18, 1);
+            transition: all 800ms cubic-bezier(0, 0, 0.18, 1);
+            /* ease-out */
+            -webkit-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+            -moz-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+            -o-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+            transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+            /* ease-out */
+
+            object-fit: cover;
+            width: 100%;
+            height: 200px;
+        }
+
+    .h-bg {
+        -webkit-transition: all 800ms cubic-bezier(0, 0, 0.18, 1);
+        -moz-transition: all 800ms cubic-bezier(0, 0, 0.18, 1);
+        -o-transition: all 800ms cubic-bezier(0, 0, 0.18, 1);
+        transition: all 800ms cubic-bezier(0, 0, 0.18, 1);
+        /* ease-out */
+        -webkit-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+        -moz-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+        -o-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+        transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+        /* ease-out */
+        width: 660px;
+        height: 100%;
+        background-color: #3f96cd;
+        position: absolute;
+        left: -659px;
+    }
+
+        .h-bg .h-bg-inner {
+            width: 50%;
+            height: 100%;
+            background-color: #464646;
+        }
+
+    .info-inner {
+        -webkit-transition: all 400ms cubic-bezier(0, 0, 0.18, 1);
+        -moz-transition: all 400ms cubic-bezier(0, 0, 0.18, 1);
+        -o-transition: all 400ms cubic-bezier(0, 0, 0.18, 1);
+        transition: all 400ms cubic-bezier(0, 0, 0.18, 1);
+        /* ease-out */
+        -webkit-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+        -moz-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+        -o-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+        transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+        /* ease-out */
+        position: absolute;
+        width: 100%;
+        bottom: 25px;
+    }
+
+        .info-inner .p-name,
+        .info-inner .p-company {
+            display: block;
+        }
+
+        .info-inner .p-name {
+            font-family: 'PT Sans', sans-serif;
+            font-size: 18px;
+            color: #252525;
+        }
+
+        .info-inner .p-company {
+            font-family: 'Lato', sans-serif;
+            font-size: 12px;
+            text-transform: uppercase;
+            color: #8c8c8c;
+        }
+
+    .a-size {
+        -webkit-transition: all 300ms cubic-bezier(0, 0, 0.18, 1);
+        -moz-transition: all 300ms cubic-bezier(0, 0, 0.18, 1);
+        -o-transition: all 300ms cubic-bezier(0, 0, 0.18, 1);
+        transition: all 300ms cubic-bezier(0, 0, 0.18, 1);
+        /* ease-out */
+        -webkit-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+        -moz-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+        -o-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+        transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+        /* ease-out */
+        position: absolute;
+        width: 100%;
+        bottom: -20px;
+        font-family: 'PT Sans', sans-serif;
+        color: #828282;
+        opacity: 0;
+    }
+
+        .a-size .size {
+            color: #252525;
+        }
+
+    .cart {
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        font-family: 'Lato', sans-serif;
+        font-weight: 700;
+    }
+
+        .cart .price {
+            -webkit-transition: all 600ms cubic-bezier(0, 0, 0.18, 1);
+            -moz-transition: all 600ms cubic-bezier(0, 0, 0.18, 1);
+            -o-transition: all 600ms cubic-bezier(0, 0, 0.18, 1);
+            transition: all 600ms cubic-bezier(0, 0, 0.18, 1);
+            /* ease-out */
+            -webkit-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+            -moz-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+            -o-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+            transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+            /* ease-out */
+            -webkit-transition-delay: 100ms;
+            -o-transition-delay: 100ms;
+            transition-delay: 100ms;
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            -o-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            font-size: 16px;
+            color: #252525;
+        }
+
+        .cart .add-to-cart {
+            -webkit-transition: all 600ms cubic-bezier(0, 0, 0.18, 1);
+            -moz-transition: all 600ms cubic-bezier(0, 0, 0.18, 1);
+            -o-transition: all 600ms cubic-bezier(0, 0, 0.18, 1);
+            transition: all 600ms cubic-bezier(0, 0, 0.18, 1);
+            /* ease-out */
+            -webkit-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+            -moz-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+            -o-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+            transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+            /* ease-out */
+            -webkit-transition-delay: 100ms;
+            -o-transition-delay: 100ms;
+            transition-delay: 100ms;
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 110%;
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            -o-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+
+            .cart .add-to-cart .txt {
+                font-size: 12px;
+                color: #fff;
+                letter-spacing: 0.045em;
+                text-transform: uppercase;
+                white-space: nowrap;
+                background-color: #3f96cd;
+            }
+
+
+
+
+
+
+            .search-box{
+  width: fit-content;
+  height: fit-content;
+  position: relative;
+}
+.input-search{
+  height: 50px;
+  width: 50px;
+  border-style: none;
+  padding: 10px;
+  font-size: 18px;
+  letter-spacing: 2px;
+  outline: none;
+  border-radius: 25px;
+  transition: all .5s ease-in-out;
+  background-color: #ffffff;
+  padding-right: 40px;
+  color:#000000;
+}
+.input-search::placeholder{
+  color:rgba(0,0,0,.5);
+  font-size: 18px;
+  letter-spacing: 2px;
+  font-weight: 100;
+}
+.btn-search{
+  width: 50px;
+  height: 50px;
+  border-style: none;
+  font-size: 20px;
+  font-weight: bold;
+  outline: none;
+  cursor: pointer;
+  border-radius: 50%;
+  position: absolute;
+  right: 0px;
+  color:#ffffff;
+  background-color:#22a6b3;
+        background-color: #3f96cd;
+  pointer-events: painted;  
+}
+.btn-search:focus ~ .input-search{
+  width: 300px;
+  border-radius: 0px;
+  background-color: transparent;
+  border-bottom:1px solid rgba(0,0,0,.5);
+  transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+}
+.input-search:focus{
+  width: 300px;
+  border-radius: 0px;
+  background-color: transparent;
+  border-bottom:1px solid rgba(0,0,0,.5);
+  transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);   
+}
+
+
+    .cart-btn img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .cart-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        width: 60px;
+        height: 60px;
+        background-color: #3f96cd;
+        border-radius: 50%;
+        z-index: 9999;
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .cart-count {
+        display: inline-block;
+       
+        background-color: #3f96cd;
+        color: #fff;
+        font-size: 14px;
+        font-weight: bold;
+        border-radius: 50%;
+
+        text-align: center;
+        line-height: 20px;
+
+
+     body {
+                background-color: rgb(94, 124, 165);
+        }
+
+</style>
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+
+</head>
+
+
+<body>
+
+
+    <a href="/Checkout" class="cart-btn">
+       <!-- <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANsAAADmCAMAAABruQABAAAAk1BMVEX///8AAADu7u7t7e36+vr19fXs7Ozz8/P4+Pjx8fHv7+/8/Pz+/v7c3NzV1dWYmJjIyMhycnKOjo56enrOzs7l5eWAgIChoaG/v7+xsbFra2tUVFTY2NhiYmJBQUGcnJxaWloYGBgpKSlERES2trZMTEx+fn4kJCQ6OjpCQkIyMjKJiYkPDw+qqqpmZmYoKCgeHh45iEa0AAAYM0lEQVR4nO1d61bjug72JHF8SXqh9E4ZKNNCN1D2vP/TnTgpsXyNXZrCOmv7lxfEtZTIkix9lhESjSdJkpaiR0QvEz2cVj0selnVS4jolaKX1EPSdghTh1DRo+2QQvS4HCLnK9r52iFgPtbO1wxJYkhs5kP/8fYfbz+StyRN07wZmFe9ZqDoNQOrXtrMJXrNXKKX1z0mekU7pCFU9BrexINcG8LbIUQdgtshTBuStiTW81lIbOarSUxOn6xqSVk1xEQvEz0sehRVPZpUXVz1ykL0mOiVopegdkgheqQeUg+u/p3UQzLxIGmH8HqInI/I+dohtB0i50OJSmLhIjFTSeTNt0atbBWmbDVfvWgFxS5bqUNQdNlyynI7JHXLchSJCZBjMFBZBEkQb65FIHlrBCXp5M2zTkNJLP//eUs7dULq1glABzkW+EknEFy1uic6RM5nG6LrBKsOSjt1UIqKqpWEVS0TXSx6tO1h0aNtrxA9Voohdc85WAwh9dRoNlyuHibz9f1j0+7X88nDajmc1f+lBA5pZslEj5SO+TpIBIORJigunZB67FtqLvCCYZoMl6P171/udliPlsOcYlJ8ypbUCanHvoWS2LSL2+7Ban7wcKVweHscqLz9UL+EM1zOVutAtmT7WM1KzHjPfolc4GI5xvklFLPx/CWasaa9PI85bgQ62C9RSTT8EiJaJhoWPar2qOhhtZdpQ049XODxzfuZjJ3aelz9CpjFOl8wifW3/nz/DqPf2pvPl9kO4e0QiqfPX2Ssbu+309PHEz/NtfkkicThlwASL2W7i2Oo6uhuh0WGfopfUpmw+cUYa9p81szSh18i/nga2OGXJAQP7y/MmWj3U0ySDr8EkGj3S6howhHCtp71j6BXoPG+m9Dt4f72bbRYHI/HxWL0dnt/2HYP2o9R4Zk5gER0ev/QBqS6gk0tCjatP+Pwj5e+l/XDbjzIcf2DjUquexnOB+Pdw9pvL/4M6w+Vnksikusm1nYzOrzzfKubxbR+c4xxS0yBs1p4sunixvMN74aUfYNfkuDZjZOmm9WgchPlAnfHS4Q1G6zcv7SeYX1v9CW/JOiD45GDmtfRpnqQJz4dpOoEXs08GL06fm+Ez5bJsxZqhoZPVkKeRpX2Lrzqx96rGJ2NHL85Rdl5uuQcG0BSuxDdbhDUyVY/1OkXivkGt9bfvUnJWTbgDNuNl1ubLB6b+b8UU0C51cHZLpv/9u6XlM+W2e+Wla29QLyk8gXGjzaRiCNR8hblKw8sq2I9KJhjM3ySyVZFillzuV+3DGHFwLIBfBqgaF85bgNRoKM57f0Gldpg97bIOR8YUqLBhznNERWRe5xGUAL3pigx3+jdlDKgg4LiY654VasTGJ2afsFHcpKv0L1pM1egYcwNeXwZN6J/8VwHRmPDI3vKu0k81y+ZGq/yAfWZx3kw5pvG8wYcGk+AzFhqd7yRkS4dlOj7Zy2P4NQJzBDMY0wMLzj2it70eXZZ6Yu92gOp3nCtPqTMdvqkbyg89mr1Sywxc6RrrkccHjPv8ks8MXOsW7sP1M7XFTMPtd36FCvLuukn17HSX6qLxDP9klLbXb8O9XXTH29oqG0R9mUMb0jjTV/gpba9Xjc7yyvlFhnTrOo/ZVhuMSQnXGoZi4eMXTUnzDLNGvwug3LCjaBInWDJ5Rcaa8LIXDuXr5nW34VKoj2XL2XLabtVI/My8MtWTxiMgeql3FnE/wy/RFX+v5vXc3XeSK5Kz8cleFNjxo+MfRN2hjHVDM0DeUvd601dxR8kMXNUeQ/rLTdzVAlRJejBvd5SwJaTRqT6PDfahN14olz6JbkcXLbzheB75GA1TLND3nfS5ZcMVNYyv2z1jsHIVObaXPI5fkm2hT+1pt+OL6GKFd9mX+BN8bTuMf923jhWkkZ7P2++fcBE+R2S+LAzofi97n2AZ73xNMHK+5549wGlxXdqHCGyhL/yWqKTI8Q1cBxx+mo2/F4ono5okD9+GoJKxXNeEm0ImA9pgiJ9XjpT1m2uyVa3ffPg6fz77g4MRq7QNaOfQyKwM6qrNcXRvPWFe8WKb1k7X7F+iRIdWeEfhOnFym712MGbJTagfPk5PQPTe0Z8MhDTSxU/UNBjj086AjQZVEd7FBHTwbawTAB+zx3TMYcoxmmfOYbAfXcq991YkUiMXNgZVSe48wHWfbdriDv215KIFanERj7AY7u5oiPH7Vzfbrvb+caKruQRfoni2szLH8hbCZfcmob7JRS+lVcmF3gopveMvGkkphczaMLHNvxeigw8ncgRwdzlpozLNVFLusiH3wuE/OnzlRtA46HOkenzodP7/0z4CZ1AoCKZKEa/WtaptG8gR+jPSRr5gHaIPx8AcpIqiUKWobd7JBYSkVw3n7ab860c9IIMw/jttvtzPhAd2jIe5JcoyJHpD+YN+l4jHOKXJNAjqRMLQCdwF84/Dr8XhaVwY3ph/CRPTL/EAJ0ocpxT5d/lZjSfz99Em8+b3jEvVcRKNGzm7MEUfoUJMh40bUChDIDvPyFWAPlD+/5tQCS/DejALunfW4pIPZ/yGYqAHBUM2n2mnpt1Qx0g0AW6vu0+JdmVV9ztl4DHj0owgo11pj4b/razRtBadfolMJP3ruoEbAdb/arzjN8ik5UOeodU6DKprb8SoCyOpbI8SxsWqW436Ft0SdUrwYd70nlBjaC0LxPI3TtJVL/Q+d1+4fRbbEAlywR8uHH7ve1+CVAXD1hbBM719mvKvuucMAaq774dYvVLoMVIuL7AnZDyB/JdvPEUkJHbeGsdUfAW3rCxGS5c2OtH/A2+cjMfBrCXB6T6ysqeA/2VD86wseco0Hj+8fFxL9rHBzy3h50blr72OO2GDIQI/iJ1jwNtALRgtfDq8aoT7vWkhICvOsRX3pvK+BhEvoyZ0y+BFmzZHpR0nseh8ulR9j22WzwIQvvP2OmXEPnUlgScNZK6ZV98G2+UbCXZxIWdYeANTLAfMFvLCNA8nNsJ7SmGB9UWBh7zksEYHghsZkAkN6QbT4dAyGKJrxl7VfB7BJBxm8HYayMozQKXNv7QmUerekkif3Rev8wrxcz1vJ0MXb07/BL4GRYegIOMKYAk5qsmKNey3fWQhSR8AM4EQt5AnGQWxBsMiLFv5A2YuJHBW6NQpNp7RUG8wdC6AERgzhivZ81Er0nZ8Vb0Re8TWVf1mmSaZUghHiTaEB9vSMZh90iSKHPCHJirCbLj6bScMAdhtDXL89mgarM8P/UGai/XejO1ZxvcDsmazLOetj6RCGMLlMucsPRLgAWo7HsQvge7D65duD3WpSUceCLoTy1bEqFfApzOlIedE8aWUx59NREpdUBz4WbgDawdyZtcbo84CeONDSxE9NUyN+wYALb3Vt7kr4xCeeP4ckfWO9vKwxtQ8YC3dr2BTzDldjxdbuSoyKVPrXtaJW08t663lIMtyUCut+ZLVE4EMIB+PJ2Sy3fHGS7e5sSD35OPLUjLViNb1WeVKu9Poye67Vsly9RCRE+tItoJO0YSCH+LDb8Ey130cwRv7hjKxduQeXiTbv4/Bm8c+L3HMoI311Hoi7d3zt28gTjle8K1WBCHqsQCUHdiZ4bX4u0ee/B7BVQmXKuHB4MfWUQ9PMavxdsR+fB7QJlMkV4PT+YBnqLq4eE+KnzYWn2WVto3nUQZ618hHTsj3c3HqNos0Hb02krktt0VidIzmRh+iUwbzqN4Y1dacI/Iz5t0ItaGXyJ1+SKuHh65RAmk7rao36U7FiHFZ4+0enhY7sRWOKoeHrrOPmeKma8eHsBUvmCtHh7YJYyZM7BmxWDo5wr7aTlv99222B/cwqUqphdGB4Y23jz4kplJyOXbHfbFFCrewLKfccUvgRuxGY/jLbOXHblsG3XwBj/OgCl+CQdsm0lon19SLeZr7HOGzJEjafPk4Fmu1MMrgVtSFHH18Mpr7HN44Yf8FQAWMy3VeniSt7+eHKG1Hl55hX3On8bb99X4kKnDqVYPT777V4thRH7cq6846GXa2wk65rbdIEY51vwSydshnrf+9zlL1smbjNyMNb9E8vY7AktxypH073blp3fpwW5I4Rmr9fAyGXj9gyLq4Z16fbN2QG4aTl0QVVhmSj08Js9e/kOD6+G15yw8teMu0ubdtceo/G47pvglRPJ2wNG1bLFZROWybdldMw5ESndE8UvAWbfXeN563+fgAN6knlwqvCUg1f2XRctk0vOCe0LdMsmkfVt+yuRJlwC/hMbrkjK+onJMuzXxuiaJ8vHppy452QDgapbRNqDvfc6RdOP3Svn4TMtRAVeTnVGnNzcJumAbMB++pCERxNtSzS8Bn3Rwzv0B//bI2jZLunkDmzSs1cMDn3R6Tu3oPvc5NzigdrRUGO9Iq4dXwvhefM3vcmkj6kLtSLuPNcH4aqnVwwNHwkckbm8q9opJn+HlmW5zLHtTIv31PdawM1ie/7jFsbZbLId/+uOtef1+2w0ghGus5XEAfPTuLN4mNqou0tZBvEm5e8MadgZAfP4lcTG8eoGXZh3AS7WFzpsthkekohZn4Rq2PmOvIOiRO8FxHjxdZqHqMm2Iis67SDJgYMdYr4fH5D83NCZmfnLyjLp1F2sh+D0KcHYEGdgZGdZfZfG2m5C+9jn3ITX2M2kC3pGJL5GL8bk4gzfW14I7hvBWyNrBe4038Yz0LP5RefPnFlusIOspn7MJuGsrAaXf5p8kynp40JVn7Iw70mhP+5wi4I40BrTFChn18GDUvC7AGH23XT/7nDsccrcdJJ4bmF4OWH/QjEeA7c76yueMcMj9ASBCKk5D65heYNn9hfScZ6B72efMWAhvMtC2F1rG4A14TdlZvPWxzznikHsfgOMw0XkTwgwzj1NjvbmwagjUmrv8PudpiS0YehOrBuzPlCkQvE8a5QPPOBBjKP2SPE3AgpsPhsPhdFy16VA00RtrPflvW088uKHafA6MIQaV8e1njUB0+F9yzp2EIPz5WH/l2t1r3lsLNpe92htsZq490noWdUjg3T/AUb6jYO1I3iB4dMjO4Q0gnsUfr3XfIgz9Nrd7GLwR8MgEn8GbvmKvxRvUgkOo88B6wzI0+4SDMPRqPbwUnDGboH7q4dnWG5axnhfsqIcHUfSDkLMPej28Uq7Y37SneniWsw8gfPeGXPXwhvChM+4kzOCJHt5XPTzDvoFPMnTXwwOuvD5XCG8U2JkdudJZIwrA/++e893gDSyLeN4w2Ofc4ivxBs+bTiy8feoEILl3KHYfIA4QS6DoE7nS2T5Yb3HgqYdXPMHn4s9IwpobeXmVM5nwe7wWnnp4MOgxVwUlrB4eCDetrnSWFnjoD8RTD0+pg0dRpO0WhIIDcdex3RCUNOO+ujMwMDA6hzcZun4368D0wRswO2uqzZcqOkHJyqOY+ORpgQOlNauLEzSV22StFNnL2l5ZV4X5/HdzJ15ozQFAb43V89TDg6XwRll07QYMFtzj7Y1ot6KF9kR3NMuC54PewqHsqIdHYUSHJ3o+oLMe3kUOxInNdlCNjwTsOX+tqEYikuumGUhAmY8JjrTdqbLPOb8tSZjthjuAv6SzHp5ylkEWLw7ljVwksPAvDuJNKQG9cPAGdEKSAKeyuVEu3C+pVn9qEHpOG/AQv6QEBSDeedJdD6+EH25AXZAVVw9dBLc2zELq4cGTvIvSeNBWExV8uD1OzLozmk7WgEgXyefkAbXHlLLt7yaJ1rsR4KHtHYmz3ZcJLx9CbDeGd1IcFRI9dXoh4D/nkbxdIgS7CeCNQyzSE7LxZpFJJYh6QyNlkn7dDEw/dYJPJik8B7S0kGjUw6OGPhgXsSXtytlxNBFtJFpor+3ucBkwXwFPJdxZr9dtlKXmF5ZQAW2LIsIGnMBxiLSuJGmnEb0GrIPbXtb2SvHvwikimg0oii2gcVC0fm/3nU1wzdygCNt9rdosysm0t6j7AwqY4F3hH8ebcoXAe+G/P0B3RBXXSeAXf1TtaLX+xtLhzttqfosNhFLf91VsqgLr012jHh7GsJj5B3LM57rjWq2yf/PDarUrx0BnPPaOa6LcRHX8UTX2lWo3O2KGPbruNUIKpmKKfgxv6h1+jRb38HaSSU0nbJUvz0JieAahXObD3DE8yiNieExZLVt7mLHhzRNIVYsB5Tj+LhKazYaz4pQOtcdeS1TONgNKSWDsFauQ9gFyD0GNoFh1gnrMRtQji7tDBqNVrc/uxkbeuh2SDWuF/PLQJNQDYubKlU0P2KODkJQtM5GQKRfl/Ym03WzWgqzm2rqRstxuhLcDEmS7lZtWP7Kz71vkyqUYAlITwRvPAZbm2cGbssdnnbxpF0m9MqOUcPgd1+q6/fVYPxjIm1pzbWnlTfn537iLt0S71bjWb27YseeONJFwLdTTX4+Ehd6RxjbKyAOy5IS1UgxL4s8JM6KyNixcaWujHp5VJ2hV4WqklyuXrybmtbomG276JYn6yG1XLl8NMx2xP2/Xfcc1VcHxv2mo7dbKY1Tugyb+TD8S+Ntvu6l61HpCv37HNX1WfvIlDeRNu8v8aOFNO9D/6uUtVS/dfaYXuL+bU43KDQ7iTatav7TwplUK3Ht4w+ry/fVBfaUWzVhQ7rDBhVbuaJWFrDcNBjtLjLtbIdZGtDf3esu0X7sv0rTrPlsIxnPQWI3BdwYRnXfuJqr5uEc2v0Rdy0PuvHNXC53dYUsJMfPOXSlb7sMuiX6wYU8D7JtSiWCGbDpIqTKxpi77RrXCdI848R8ZCr7juhrIjSpcU8o7eINHs5qrfy06CGjKg+pktLxxqp88+MC845h2DG/VVkWvePRGWAdvXJqPpgirTb8OPx2zNVY2Oi1vjOih3JvqyQjeAu6XzfRDYIcN7rxTfjY5vG/3D7MmPmnbB+Dk+Pj3/fV547DBeKMnYidZaifRvFOeq46Q+35ZahRQe2gelL4ahYWBhSNEMG0mlPg9rvlqNY3VY80sVPWd9OvDq7agfvyehPxxuO+W9s0aWKNGSvQgVp1/3w0Exdh3S1lOrPtujqdG9nxHfSQmMOwRYLulYcTDrT7VbY57i5fg3Li0ZjvEfhIj/RIwkORmldBFE82/OG/IUkRwn5MuEoPvuLbc12EeK31aNjLp0EHxmN5mvqVZ9Wui3dnUgd9r6+H5YjrwTGZhwSH8WRZYv7AgGk8Hh+Bi+cecZld46uHZ5kOaoDjvl/3UCXhmqV77uzFgHXdcO2N/mk5AS0vhqP0Mh5KYWDG9nnXTDmTYVk3zdWfwdm4eZ/dq+f0FZuEkxvkl6sCZFdg0yUvCv8QbJ2VurYd1mMWSKJs1Ppl6chZ2oMXdLsHs7Ps6GE52dnCKOI/nypGkmg6CfklorknJAuFi4IDI3IxpQXE8fq8aNXYU6bwbiAJ9sSSCengoKEco8wEcLbd2Un7drPJmewUwvTJHKEQG5CSbE0Y43904juK+L2tx7KzxYZIYZ7vVPE7pLhW3Hw3FD3HeYbu5uLSjHI7chcNHZcA5qkv4JXqOivlKve4nuyGnmDp5q/7HN8uJryD6DVPmi+XNkTcNq4VENx2Vo//cjpab6kcxBZheiqtf2yxHtxYDDduHebZP0UEddxmmVtBJeA2rDA1CjnW/H+7ub54FMGbyfHO/P4Qcc18PUAgYz/Nv1AiKYgMia48NnrsJjW63g3a+9FwSmxZlGPVcB8H5aHtRxrajGdb3fUkMiWf7JWYeh2O8vFzJ9vslxjzqzqYIvyS6Hl4tN2RxCYj5QewHU8ve6ByZ/JouAb2sRIPR19h7HQ1QmUVeTuvRJV+yAdrLrAbnx3PxyvvFTJgoy/s/2wZ8xXZbcx1lvpzHFu49zJfNKzrrnHAvfok9j5MQjPPh4j6sdMTL/WKaY0wSTSdcirczfGUrnk5TXvn4OL+3bTSb9vT4dhzn6hAVO2Pg9yJ95bP2OD48HZYPVn5LUdJ8M94dF5O3eX2kaP42WRx3401Oy6LyO7JCGRKC3wvf49Qtem/qxvQa8bGUf1ZIkCBizBhPLfEqq07w3XHt35vKdXO+7U6suY7r3bfYp1/yo3kDA0MDZIC3Th0UGcMDmF4rb6EkxsZeu88yXyD26j07HRF7tfolrph5KKb3AjHz4Duuv4CdibfdrnXTW/2SK/olP4w3faBjgft4cyxwQ9859asb02vlrZvEJDwn3FUPz5YTVvB09pywOoRa8HQB9fAcOeFGUKROcOXyg/wSPZePumPmeadOCKmHZ8/lS9n6P7Xd//H2H28/h7f/AY+HpQDWqoIlAAAAAElFTkSuQmCC" alt="Cart">
+        -->
+        <span class="cart-count">CART</span>
+
+    </a>
+
+      <form method="post">
+
+    <div class="search-box">
+    <button type="submit" class="btn-search"><i class="fas fa-search"></i></button>
+            <input type="text" class="input-search" name="searchTerm"  placeholder="Type to Search...">
+
+  </div>
+   </form>
+
+   <!-- <div class="basicProducts">
+        @foreach (var item in Model.products)
+        {
+            <div class="Bproduct">
+                <img src="@item.imageURL" alt="@item.name" class="product-image">
+                <div class="product-info">
+                    <h3>@item.name</h3>
+                    <p>@item.description</p>
+                    <p>Price: $@item.price</p>
+                    <p>Stock: @item.stock</p>
+                    <form id="add-to-cart-form-@item.pid" class="add-to-cart-form" method="post" asp-page-handler="AddToCart">
+                        <input type="hidden" name="productId" id="productId-@item.pid" value="@item.pid" />
+                        <button type="submit" class="add-to-cart-btn">Add to Cart</button>
+                    </form>
+                </div>
+            </div>
+
+        }
+    </div>
+
+    -->
+
+
+ <div class="row">
+            @foreach(var item in Model.products)
+            {
+
+     
+               
+                    <div class="el-wrapper">
+                        <div class="box-up">
+                            <img class="img" src="@item.imageURL" alt="">
+                            <div class="img-info">
+                                <div class="info-inner">
+                                    <span class="p-name">@item.name</span>
+                                    <span class="p-company">Yeezy</span>
+                                </div>
+                                <div class="a-size">Available sizes : <span class="size">S , M , L , XL</span></div>
+                            </div>
+                        </div>
+
+                        <div class="box-down">
+                            <div class="h-bg">
+                                <div class="h-bg-inner"></div>
+                            </div>
+                    <form id="add-to-cart-form-@item.pid" class="add-to-cart-form cart" method="post" asp-page-handler="AddToCart">
+                        <input type="hidden" name="productId" id="productId-@item.pid" value="@item.pid" />
+                        <span class="price">@item.price</span>
+                        <span class="add-to-cart">
+                            <button type="submit" class="txt add-to-cart-btn">Add to Cart</button>
+                        </span>
+                    </form>
+
+
+                        </div>
+                    </div>
+  }   
+                </div>
+
+            
+      
+                 
+
+      
+       
+     
+
+            
+            
+              
+           
+            
+      
+
+    <script>
+        $(document).ready(function () {
+            $('.add-to-cart-btn').on('click', function (event) {
+                event.preventDefault();
+                var form = $(this).closest('form');
+                $.ajax({
+                    url: form.attr('action'),
+                    type: form.attr('method'),
+                    data: form.serialize(),
+                    success: function (response) {
+                        alert('Product added to cart successfully!');
+                    },
+                    error: function (xhr, status, error) {
+                        alert('An error occurred while adding the product to cart!');
+                    }
+                });
+                return false; // prevent form submission
+            });
+        });
+    </script>
+
+
+
+
+
+
+
+
+
+
+</body>
+
